@@ -10,27 +10,32 @@ namespace ISRPO_LAB7_DZ
     {
         public string AccountNumber;
         private decimal Balance = 0;
+
         public void Deposit(decimal amount)
         {
             if (amount > 0)
             {
-                
-                Balance += amount;
-                Console.WriteLine($"Пополнение: {amount}. Баланс: {Balance}");
+                this.Balance += amount;
+                Console.WriteLine($"Пополнение: {amount}. Баланс: {this.Balance}");
             }
         }
+
         public void snatie(decimal amount)
         {
-            if (amount > 0 &&amount <= Balance)
+            if (amount > 0 && amount <= this.Balance)
             {
-                Balance -= amount;
-                Console.WriteLine($"снятие {amount}");
+                this.Balance -= amount;
+                Console.WriteLine($"Снятие: {amount}. Баланс {this.Balance}");
             }
-            else Console.WriteLine("Недостаточно средств");
+            else
+            {
+                Console.WriteLine("Недостаточно средств");
+            }
         }
+
         public void printinfo()
         {
-            Console.WriteLine($"Баланс {Balance}");
+            Console.WriteLine($"Баланс: {this.Balance}");
         }
 
 
